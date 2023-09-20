@@ -5,7 +5,7 @@ metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
 })
 
-db = SQLAlchemy(metadata=metadata)
+db = SQLAlchemy
 
 class Owner(db.Model):
     __tablename__ = 'owners'
@@ -22,8 +22,8 @@ class Pet(db.Model):
     __tablename__ = 'pets'
     
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    species = db.Column(db.String)
+    name = db.Column(db.String(255))
+    species = db.Column(db.String(255))
 
     owner_id = db.Column(db.Integer, db.ForeignKey('owners.id'))
 
